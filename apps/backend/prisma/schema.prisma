@@ -11,3 +11,30 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Transaction {
+  id          Int       @id @default(autoincrement())
+  title       String
+  note        String?
+  amount      Float
+  type        Type
+  date        DateTime  @default(now())
+  created_at  DateTime  @default(now())
+  updated_at  DateTime  @updatedAt 
+  category_id Int
+  category    Category  @relation(fields: [category_id], references: [id])
+}
+
+model Category {
+  id            Int             @id @default(autoincrement())
+  name          String
+  description   String?
+  transactions  Transaction[]
+  created_at    DateTime        @default(now())
+  updated_at    DateTime        @updatedAt 
+}
+
+enum Type {
+  INCOME
+  EXPENSE
+}
