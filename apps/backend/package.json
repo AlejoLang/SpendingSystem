@@ -1,0 +1,17 @@
+{
+  "name": "@spendingsystem/backend",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "bun run --watch src/index.ts",
+    "start": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
+    "elysia": "^1.4.28",
+    "pg": "^8.20.0",
+    "prisma": "^7.8.0",
+    "@spendingsystem/shared": "workspace:*"
+  }
+}
+

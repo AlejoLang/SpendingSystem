@@ -1,0 +1,20 @@
+{
+  "name": "spendingsystem",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "bun run --filter '*' dev",
+    "dev:backend": "bun run --filter @spendingsystem/backend dev",
+    "dev:frontend": "bun run --filter @spendingsystem/frontend dev",
+    "build": "bun run --filter '*' build",
+    "start": "bun run --filter '*' start"
+  }
+}
+
