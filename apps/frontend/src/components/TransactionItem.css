@@ -1,0 +1,30 @@
+.transactionItem {
+  box-sizing: border-box;
+  width: 100%;
+  height: 4rem;
+  padding: 0.5rem;
+  background-color: #252525;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2rem;
+  gap: 1rem;
+  align-items: center;
+  border-radius: 0.5rem;
+}
+
+.transactionItem > span {
+  display: flex;
+  align-items: center;
+}
+
+.transactionItemTitle {
+  font-size: 1.2rem;
+}
+
+.transactionItemAmount {
+  justify-content: right;
+}
+
+.transactionItemDelete {
+  aspect-ratio: 1;
+}
+
