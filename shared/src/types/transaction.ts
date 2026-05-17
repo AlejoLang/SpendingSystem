@@ -1,4 +1,4 @@
-import type { Category, CreateCategoryDTO } from './category';
+import type { Category } from './category';
 
 export type TransactionType = 'INCOME' | 'EXPENSE';
 
@@ -23,5 +23,5 @@ export interface CreateTransactionDTO {
 }
 
 export type deleteTransactionType = (transaction_id: number) => void;
-export type addTransactionType = (transaction: CreateCategoryDTO) => void;
+export type addTransactionType = (transaction: CreateTransactionDTO) => void;
 
