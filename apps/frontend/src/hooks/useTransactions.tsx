@@ -1,7 +1,4 @@
-import type {
-  Transaction,
-  CreateTransactionDTO,
-} from '@spendingsystem/shared';
+import type { Transaction, CreateTransactionDTO } from '@spendingsystem/shared';
 import { useEffect, useState } from 'react';
 
 function useTransactions() {
@@ -18,10 +15,14 @@ function useTransactions() {
   const addTransaction = async (transaction: CreateTransactionDTO) => {
     const res = await fetch(import.meta.env.VITE_TRANSACTIONS_URL, {
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify(transaction),
     });
     if (res.ok) {
       const data = await res.json();
+      console.log(data);
       setTransactions((prev) => [data, ...prev]);
     }
   };
