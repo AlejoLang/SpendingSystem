@@ -1,12 +1,15 @@
-import type { Transaction } from '@spendingsystem/shared';
+import type {
+  deleteTransactionType,
+  Transaction,
+} from '@spendingsystem/shared';
 import './TransactionItem.css';
 
 function TransactionItem({
   transactionInfo,
-  deleteTransaction,
+  removeTransaction,
 }: {
   transactionInfo: Transaction;
-  deleteTransaction: (id: number) => void;
+  removeTransaction: deleteTransactionType;
 }) {
   return (
     <div className='transactionItem'>
@@ -26,7 +29,7 @@ function TransactionItem({
       <button
         type='button'
         className='transactionItemDelete'
-        onClick={() => deleteTransaction(transactionInfo.id)}
+        onClick={() => removeTransaction(transactionInfo.id)}
       >
         D
       </button>
