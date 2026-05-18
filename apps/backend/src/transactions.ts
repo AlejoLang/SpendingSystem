@@ -1,6 +1,7 @@
 import { Elysia, t } from 'elysia';
 import { prisma } from './lib/prisma';
 import { error } from 'console';
+import type { Transaction } from '../../../shared/src';
 
 export const transactionsRoutes = new Elysia({ prefix: '/transactions' })
   .get('/', async () => {
@@ -13,7 +14,15 @@ export const transactionsRoutes = new Elysia({ prefix: '/transactions' })
   .post(
     '/',
     async ({ body }) => {
-      return prisma.transaction.create({ data: body });
+      const response = await prisma.transaction.create({ data: body });
+      const category_info = await prisma.category.findUnique({
+        where: { id: response.category_id ?? 0 },
+      });
+      const res = {
+        ...response,
+        category: category_info ?? null,
+      };
+      return res;
     },
     {
       body: t.Object({
