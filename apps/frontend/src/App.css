@@ -5,3 +5,15 @@
   box-sizing: border-box;
 }
 
+.openAddTransactionModal {
+  width: 10rem;
+  height: 2rem;
+  font-size: 1.2rem;
+  margin: 1rem;
+  background: var(--accent);
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
